@@ -1,0 +1,173 @@
+
+
+
+Create table Products 
+(product_id int PRIMARY KEY,
+product_name VARCHAR(20),
+category VARCHAR(20),
+price INT )
+
+
+SELECT * FROM Products 
+
+INSERT INTO Products
+VALUES (1,'mleko','nabiał',5)
+
+INSERT INTO Products
+VALUES (2,'telefon','elektronika',1200)
+
+INSERT INTO Products
+VALUES (3,'telefon','elektronika',499)
+
+INSERT INTO Products 
+VALUES (4,'telefon','elektronika',501)
+
+INSERT INTO Products
+VALUES (5,'tablet','elektronika'1300)
+
+
+delete from products where product_name='mleko'
+
+SELECT * FROM Products 
+
+INSERT INTO Products
+VALUES (1,'słuchawki','elektornika',350)
+
+INSERT INTO Products
+VALUES (5,'kubek','ceramika',15)
+
+
+INSERT INTO Products
+VALUES (6,'kubek','ceramika',20)
+
+INSERT INTO Products
+VALUES (7,'rower','kolarstwo',4500)
+
+#########################################################
+
+
+
+SELECT * 
+FROM products 
+WHERE category='elektronika' and price >500
+
+#########################################################
+
+UPDATE Products
+SET price = price * 1.1
+WHERE category ='elektronika'                -----------> zwiększenie ceny o 10 procent
+
+
+select *from products
+
+
+UPDATE Products
+SET price = price * 0.9
+WHERE category ='elektronika'     -------->zmniejszenie ceny o 10 procent 
+
+UPDATE Products 
+SET category ='elektronika'        ------------>zmiana nazwy kategorii na poprawną
+where product_name='słuchawki'
+
+
+##########################################################
+
+
+SELECT category, MAX(price) AS maksymalna_cena
+FROM Products
+GROUP BY category
+
+##########################################################
+
+SELECT category, AVG(price) as srednia_cen, product_name
+FROM Products 
+WHERE price > 440                                         ----------->obliczanie średniej ceny ,przy założeniu ze cena wiekszajest od 440
+GROUP BY category, product_name
+
+##########################################################
+SELECT category, AVG(price) as srednia_cena
+FROM Products                                             ----------->podobny przyklad ale jedna kolumna wiecej
+WHERE price > 440
+GROUP BY category
+
+#########################################################
+
+SELECT category, MAX(price) as max_cena
+FROM Products
+GROUP BY category
+
+SELECT category, MIN(price) as najnizsza_cena
+FROM Products
+GROUP BY category
+##################################################
+SELECT *
+FROM products
+WHERE price between 300 and 1600
+
+##################################################
+
+SELECT *
+FROM Products                       ------------>kategoria,która zaczyna się na "e"
+WHERE category like 'e%'
+
+SELECT *
+FROM Products                       ------------>kategoria, która zaczyna się na "c"
+WHERE category like 'c%'
+
+##################################################
+
+SELECT *
+FROM Products 
+WHERE price > (SELECT AVG(price) FROM Products)    ---------->cena wyższa niż średnia cena wszystkich produktów
+
+SELECT category, AVG(price)
+FROM Products
+GROUP BY category
+
+#################################################
+
+SELECT SUM(price)             ---------->suma wartości wszystkich produktów w tabeli
+FROM Products
+
+#################################################
+
+SELECT *
+FROM Products                                            ---------------->produkty, których nazwa zaczyna się na "słu"
+WHERE product_name LIKE 'słu%'
+
+SELECT *
+FROM Products
+WHERE product_name LIKE '%on'                             ------------?produkty, których nazwa kończy się na "on"
+
+#################################################
+
+SELECT *
+FROM Products
+WHERE price >=1000
+
+################################################       -------------------->cena większa lub równa jakiejś wartości
+
+select *
+from products
+
+
+INSERT INTO Products 
+VALUES (8,'rower','kolarstwo',2500)
+
+INSERT INTO Products
+VALUES (9,'rower','kolarstwo',1500)
+
+INSERT INTO Products 
+VALUES (10,'słuchawki','elektronika',150)
+
+INSERT INTO Products
+VALUES (11,'lampka','elektronika',200)
+
+
+######################################################
+
+SELECT *
+FROM Products
+WHERE price between 1000 and 2000 AND category='elektronika'             ----------> cena pomiędzy konketnym przedziałem i konkretna kategoria
+
+
